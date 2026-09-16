@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Inteligente de Comunicação</title>
+    <link rel="stylesheet" href="../styles/styleEntradapg.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div id="admin-banner" class="admin-only" style="display: none;">
+        <span>⚙️ <strong>Modo Edição Ativo</strong> (Servidor)</span>
+        <a href="login.html" class="btn-sair">Sair da Edição</a>
+    </div>
+
+
+    <header>
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/x80Mp3Yg/SIA-logo.png" alt="Logo SIA" class="header-logo-sia">
+        </div>
+
+        <div class="header-right">
+            <div class="clock" id="clock">00:00</div>
+            <img src="https://cajui.ifnmg.edu.br/img/ifnmg.png" alt="Logo IFNMG" class="header-logo-if">
+        </div>
+    </header>
+
+    <main>
+
+        <section id="view-home" class="view active">
+            <div class="carousel-container" id="carousel-container">
+
+                <button class="carousel-btn prev-btn" onclick="prevSlide()" aria-label="Aviso anterior">&#10094;</button>
+                <button class="carousel-btn next-btn" onclick="nextSlide()" aria-label="Próximo aviso">&#10095;</button>
+
+                <div class="slide slide-verde active">
+                    <span class="badge urgencia-media">Aviso Importante</span>
+                    <h1>Suspensão de Aulas - Feriado</h1>
+                    <p>Informamos que no próximo dia 15 não haverá expediente acadêmico devido ao feriado nacional.</p>
+                </div>
+
+                <div class="slide slide-vermelho">
+                    <span class="badge urgencia-alta">Urgente</span>
+                    <h1>Feira de Tecnologia e Robótica</h1>
+                    <p>Participe da exposição de projetos embarcados no hall principal. Inscrições abertas!</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="view-avisos" class="view">
+            <h2>Todos os Avisos</h2>
+
+
+            <button class="admin-only btn-add" style="display: none;" onclick="abrirModalAviso()">+ Adicionar Novo Aviso</button>
+
+            <div class="avisos-grid" id="avisos-grid">
+                <div class="aviso-card prioridade">
+                    <h3>Rematrícula Aberta</h3>
+                    <p>O prazo para rematrícula se encerra na próxima sexta-feira. Não perca o prazo!</p>
+                </div>
+                <div class="aviso-card">
+                    <h3>Edital de Estágio</h3>
+                    <p>Vagas abertas para o laboratório de informática. Acesse o portal do aluno.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-calendario" class="view">
+            <h2>Calendário Acadêmico</h2>
+
+            <button class="admin-only btn-add" style="display: none;" onclick="abrirModalCalendario()">+ Adicionar Evento</button>
+
+            <ul class="calendario-lista" id="calendario-lista">
+                <li><strong>02/11</strong> - Feriado: Finados</li>
+                <li><strong>10/11 a 14/11</strong> - Semana de Provas (P1)</li>
+                <li><strong>15/11</strong> - Feriado: Proclamação da República</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <nav class="touch-bar">
+        <button class="nav-btn active" onclick="changeView('view-home', this)">
+            <span class="icon">🏠</span> Início
+        </button>
+        <button class="nav-btn" onclick="changeView('view-avisos', this)">
+            <span class="icon">📢</span> Mural de Avisos
+        </button>
+        <button class="nav-btn" onclick="changeView('view-calendario', this)">
+            <span class="icon">📅</span> Calendário
+        </button>
+    </nav>
+
+    <script src="../script/entradapg.js"></script>
+</body>
+
+</html>

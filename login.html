@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - SIA / IFNMG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styleLogin.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="card-header">
+            <img src="https://cajui.ifnmg.edu.br/img/ifnmg.png" alt="Logo IFNMG">
+            <img src="https://i.postimg.cc/x80Mp3Yg/SIA-logo.png" alt="Logo SIA">
+        </div>
+
+    <div class="card-body">
+        
+        <div class="public-access">
+            <p class="subtitle">Acesso rápido ao painel de informações</p>
+            <a href="entradapg.html" class="btn-acessar-grande">
+                <i class="fas fa-door-open"></i> Acessar Painel
+            </a>
+        </div>
+
+        <div class="divider">
+            <span>Área Administrativa</span>
+        </div>
+
+
+        <form id="form-login-servidor" class="staff-form">
+            <p class="staff-title">Acesso para servidores</p>
+
+            <div class="input-group">
+                <input type="text" id="servidor-id" placeholder="Usuário / ID do Servidor" required>
+                <span class="icon"><i class="fas fa-user-shield"></i></span>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="servidor-senha" placeholder="Senha" required>
+                <span class="icon"><i class="fas fa-lock"></i></span>
+            </div>
+
+            <button type="submit" class="btn-servidor">
+                <i class="fas fa-pen-to-square"></i> Entrar para Editar
+            </button>
+        </form>
+
+    </div>
+
+        <div class="card-footer">
+            <a href="#">Esqueceu a senha do servidor?</a>
+        </div>
+
+    </div>
+    <script>
+    document.getElementById('form-login-servidor').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        const ID_CORRETO = "malu";
+        const SENHA_CORRETA = "141021";
+
+        const idDigitado = document.getElementById('servidor-id').value.trim();
+        const senhaDigitada = document.getElementById('servidor-senha').value.trim();
+
+        if (idDigitado === ID_CORRETO && senhaDigitada === SENHA_CORRETA) {
+
+            window.location.href = "entradapg.html?admin=true";
+        } else {
+            alert("ID ou Senha incorretos! Apenas servidores autorizados podem editar.");
+        }
+    });
+    </script>
+
+</body>
+
+</html>
